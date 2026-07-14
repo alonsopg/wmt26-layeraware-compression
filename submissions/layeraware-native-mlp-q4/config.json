@@ -1,0 +1,10 @@
+{
+  "system_id": "layeraware-native-mlp-q4",
+  "track": "constrained",
+  "base_model": "google/gemma-3-12b-it",
+  "base_revision": "96b6f1eccf38110c56df3a15bffe176da04bfd80",
+  "compression_method": "selective bitsandbytes NF4 with double quantization",
+  "layer_policy": "144 text MLP gate/up/down projections q4; all other modules BF16",
+  "primary_lang_pair": "eng-zho_Hans",
+  "designation": "PRIMARY"
+}

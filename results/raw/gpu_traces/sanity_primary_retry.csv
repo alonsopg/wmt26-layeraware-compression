@@ -1,0 +1,11 @@
+timestamp,gpu_id,memory_used_mib,utilization_gpu_pct,utilization_memory_pct,run_id
+2026-07-14T11:38:21Z,0,0,0,0,sanity_primary_retry
+2026-07-14T11:38:23Z,0,0,0,0,sanity_primary_retry
+2026-07-14T11:38:26Z,0,0,0,0,sanity_primary_retry
+2026-07-14T11:38:28Z,0,0,0,0,sanity_primary_retry
+2026-07-14T11:38:29Z,0,0,0,0,sanity_primary_retry
+2026-07-14T11:38:30Z,0,11926,26,1,sanity_primary_retry
+2026-07-14T11:38:31Z,0,12120,23,1,sanity_primary_retry
+2026-07-14T11:38:32Z,0,12208,68,54,sanity_primary_retry
+2026-07-14T11:38:33Z,0,12208,10,6,sanity_primary_retry
+2026-07-14T11:38:35Z,0,0,0,0,sanity_primary_retry

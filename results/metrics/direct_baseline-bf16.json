@@ -1,0 +1,20 @@
+{
+  "system_id": "baseline-bf16",
+  "batch_size": 8,
+  "lines": 32,
+  "processor_load_seconds": 4.527383277999888,
+  "model_load_seconds": 5.5886403039999095,
+  "generation_seconds": 45.890436525999576,
+  "generation_seconds_per_line": 1.4340761414374867,
+  "end_to_end_seconds": 56.02217015500037,
+  "torch_peak_allocated_mib": 24626.6875,
+  "chrf": 27.90000090955304,
+  "bleu": 32.09819782958222,
+  "valid_line_count": true,
+  "output": "/home/paperspace/projects/wmt26-layeraware-compression/results/predictions/baseline-bf16.cmp32.txt",
+  "nvidia_peak_vram_mib": 25366,
+  "artifact_bytes": 24414181813,
+  "artifact_gib": 22.73747866321355,
+  "compression_method": "none",
+  "layer_policy": "all BF16"
+}

@@ -1,0 +1,15 @@
+{
+  "system_id": "iwslt-storage-codec-q3",
+  "batch_size": 8,
+  "lines": 332,
+  "processor_load_seconds": 4.5488942370002405,
+  "model_load_seconds": 29.465513596000164,
+  "generation_seconds": 450.75446202999956,
+  "generation_seconds_per_line": 1.3576941627409624,
+  "end_to_end_seconds": 484.78734053099924,
+  "torch_peak_allocated_mib": 25646.1005859375,
+  "chrf": 28.25552518050814,
+  "bleu": 31.386845676932513,
+  "valid_line_count": true,
+  "output": "/home/paperspace/projects/wmt26-layeraware-compression/results/predictions/iwslt-storage-codec-q3.full331.txt"
+}

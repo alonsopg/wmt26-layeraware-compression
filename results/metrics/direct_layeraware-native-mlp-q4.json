@@ -1,0 +1,20 @@
+{
+  "system_id": "layeraware-native-mlp-q4",
+  "batch_size": 8,
+  "lines": 32,
+  "processor_load_seconds": 4.58623955899975,
+  "model_load_seconds": 17.675295348999953,
+  "generation_seconds": 72.22738050399994,
+  "generation_seconds_per_line": 2.257105640749998,
+  "end_to_end_seconds": 94.50595971700022,
+  "torch_peak_allocated_mib": 12645.35107421875,
+  "chrf": 28.098186575638245,
+  "bleu": 32.318035004819095,
+  "valid_line_count": true,
+  "output": "/home/paperspace/projects/wmt26-layeraware-compression/results/predictions/layeraware-native-mlp-q4.cmp32.txt",
+  "nvidia_peak_vram_mib": 13298,
+  "artifact_bytes": 11804446040,
+  "artifact_gib": 10.99374707788229,
+  "compression_method": "BitsAndBytes NF4/BF16",
+  "layer_policy": "144 text MLP projections q4; rest BF16"
+}

@@ -1,0 +1,15 @@
+{
+  "system_id": "layeraware-native-mlp-q4",
+  "batch_size": 8,
+  "lines": 332,
+  "processor_load_seconds": 4.5823975519997475,
+  "model_load_seconds": 16.37695491700015,
+  "generation_seconds": 722.0719880899996,
+  "generation_seconds_per_line": 2.1749156267771075,
+  "end_to_end_seconds": 743.0509107540001,
+  "torch_peak_allocated_mib": 13679.69287109375,
+  "chrf": 28.301871762593084,
+  "bleu": 31.365279187876272,
+  "valid_line_count": true,
+  "output": "/home/paperspace/projects/wmt26-layeraware-compression/results/predictions/layeraware-native-mlp-q4.full331.txt"
+}

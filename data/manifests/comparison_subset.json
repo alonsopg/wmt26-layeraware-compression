@@ -1,0 +1,8 @@
+{
+  "name": "cmp32",
+  "lang_pair": "eng-zho_Hans",
+  "lines": 32,
+  "source": "/home/paperspace/projects/wmt26-layeraware-compression/data/prepared/modelzip_work/tests/eng-zho_Hans/wmt25-ref.eng-zho_Hans.eng",
+  "reference": "/home/paperspace/projects/wmt26-layeraware-compression/data/prepared/modelzip_work/tests/eng-zho_Hans/wmt25-ref.eng-zho_Hans.zho_Hans",
+  "selection": "first_n_in_official_order"
+}

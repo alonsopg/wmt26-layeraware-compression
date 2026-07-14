@@ -1,0 +1,20 @@
+{
+  "system_id": "iwslt-storage-codec-q3",
+  "batch_size": 8,
+  "lines": 32,
+  "processor_load_seconds": 4.825722134999978,
+  "model_load_seconds": 26.973209149000013,
+  "generation_seconds": 46.42431587300007,
+  "generation_seconds_per_line": 1.4507598710312521,
+  "end_to_end_seconds": 78.23919570699991,
+  "torch_peak_allocated_mib": 24636.7216796875,
+  "chrf": 27.65946581443981,
+  "bleu": 31.796451328229505,
+  "valid_line_count": true,
+  "output": "/home/paperspace/projects/wmt26-layeraware-compression/results/predictions/iwslt-storage-codec-q3.cmp32.txt",
+  "nvidia_peak_vram_mib": 25400,
+  "artifact_bytes": 15521547822,
+  "artifact_gib": 14.455567879602313,
+  "compression_method": "Quantize q3 + Zstd",
+  "layer_policy": "144 text MLP projections storage-coded; decoded BF16"
+}

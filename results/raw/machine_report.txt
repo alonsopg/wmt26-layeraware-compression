@@ -1,0 +1,45 @@
+timestamp_utc: 2026-07-14T11:28:51Z
+hostname: psqk1hdgqipx
+os_release:
+PRETTY_NAME="Ubuntu 22.04.5 LTS"
+NAME="Ubuntu"
+VERSION_ID="22.04"
+VERSION="22.04.5 LTS (Jammy Jellyfish)"
+VERSION_CODENAME=jammy
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=jammy
+kernel: Linux psqk1hdgqipx 5.15.0-181-generic #191-Ubuntu SMP Fri May 22 19:09:02 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux
+disk_space:
+Filesystem                   Size  Used Avail Use% Mounted on
+/dev/mapper/ubuntu--vg-root  245G  116G  119G  50% /
+ram:
+               total        used        free      shared  buff/cache   available
+Mem:            44Gi       2.2Gi        38Gi       0.0Ki       3.5Gi        41Gi
+Swap:             0B          0B          0B
+cpu_count: 8
+cuda_version:
+./scripts/00_check_machine.sh: line 20: nvcc: command not found
+python_versions:
+/home/paperspace/miniconda3/envs/iwslt-2026/bin/python
+Python 3.11.15
+/home/paperspace/miniconda3/envs/iwslt-2026/bin/python3
+Python 3.11.15
+environment:
+CONDA_PREFIX=/home/paperspace/miniconda3/envs/iwslt-2026
+VIRTUAL_ENV=<unset>
+HF_TOKEN=absent
+huggingface_login_status:
+A new version of huggingface_hub (1.23.0) is available! You are using version 1.7.2.
+To update, run: curl -LsSf https://hf.co/cli/install.sh | bash -
+
+user:  alonsopg
+gpu_inventory:
+index, name, memory.total [MiB], driver_version
+0, NVIDIA RTX A6000, 49140 MiB, 535.309.01
+prior_iwslt_locations:
+/home/paperspace/projects/iwslt2026-compression

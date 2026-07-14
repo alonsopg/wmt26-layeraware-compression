@@ -1,0 +1,20 @@
+{
+  "system_id": "organizer-bnb-q4",
+  "batch_size": 8,
+  "lines": 32,
+  "processor_load_seconds": 4.572893954999927,
+  "model_load_seconds": 12.757253030000356,
+  "generation_seconds": 76.14580927299994,
+  "generation_seconds_per_line": 2.379556539781248,
+  "end_to_end_seconds": 93.49292851100017,
+  "torch_peak_allocated_mib": 9368.0302734375,
+  "chrf": 27.645730791231383,
+  "bleu": 31.94905923944354,
+  "valid_line_count": true,
+  "output": "/home/paperspace/projects/wmt26-layeraware-compression/results/predictions/organizer-bnb-q4.cmp32.txt",
+  "nvidia_peak_vram_mib": 12194,
+  "artifact_bytes": 8353809477,
+  "artifact_gib": 7.780091349966824,
+  "compression_method": "BitsAndBytes NF4",
+  "layer_policy": "global q4"
+}

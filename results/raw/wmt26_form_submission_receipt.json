@@ -1,0 +1,26 @@
+{
+  "timestamp_utc": "2026-07-14T14:09:21Z",
+  "form_url": "https://docs.google.com/forms/d/e/1FAIpQLSczVIZpaMgwTUPk_agOQ8ArDWCKSqMVA5FR1dxc5KzvXAHBVw/viewform?usp=header",
+  "post_url": "https://docs.google.com/forms/d/e/1FAIpQLSczVIZpaMgwTUPk_agOQ8ArDWCKSqMVA5FR1dxc5KzvXAHBVw/formResponse",
+  "http_status": 200,
+  "final_url": "https://docs.google.com/forms/d/e/1FAIpQLSczVIZpaMgwTUPk_agOQ8ArDWCKSqMVA5FR1dxc5KzvXAHBVw/formResponse",
+  "confirmation_detected": true,
+  "repository": "https://huggingface.co/alonsopg/wmt26-layeraware-native-mlp-q4",
+  "repository_revision": "609c25680eb89286a04cd70747da42c7f3c98412",
+  "submitted_fields": {
+    "institution": "Independent researcher",
+    "contact_email": "mail@alonsopg.com",
+    "team": "alonso",
+    "primary_submission_id": "layeraware-native-mlp-q4",
+    "track": "Constrained",
+    "language_pairs": "eng-zho_Hans",
+    "maximum_batch_size": 8,
+    "release_outputs_consent": true,
+    "source_code": "https://huggingface.co/alonsopg/wmt26-layeraware-native-mlp-q4",
+    "original_model": "google/gemma-3-12b-it — https://huggingface.co/google/gemma-3-12b-it",
+    "original_model_size": "12B parameters; 22.74 GiB BF16 artifact (24,414,181,813 bytes)",
+    "data_used": "NA (no calibration or fine-tuning data used)",
+    "compression_methods": "Selective native BitsAndBytes NF4 with double quantization on 144 text-transformer MLP gate/up/down projections; all other modules retained in BF16.",
+    "description": "We submit layeraware-native-mlp-q4 to the WMT26 constrained Model Compression track for English-to-Simplified-Chinese translation. The system is directly derived from google/gemma-3-12b-it. We apply native BitsAndBytes NF4 with double quantization to the 144 gate, up, and down projection modules in the 48 text-transformer MLP blocks. Attention projections, embeddings, normalization layers, the language-model head, and vision modules remain in BF16. No calibration or fine-tuning data is used. On 332 reference-backed WMT25 English-Chinese records, the system obtained 28.30 chrF and 31.37 BLEU, compared with 27.67 chrF and 30.80 BLEU for the organizer global-q4 baseline. The serialized model artifact is 10.99 GiB and local peak VRAM was 14.64 GiB on an RTX A6000. The submission follows the organizer run contract and passed the official sanity check."
+  }
+}

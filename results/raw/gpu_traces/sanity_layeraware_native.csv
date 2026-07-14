@@ -1,0 +1,11 @@
+timestamp,gpu_id,memory_used_mib,utilization_gpu_pct,utilization_memory_pct,run_id
+2026-07-14T11:59:24Z,0,0,0,0,sanity_layeraware_native
+2026-07-14T11:59:26Z,0,0,0,0,sanity_layeraware_native
+2026-07-14T11:59:28Z,0,0,0,0,sanity_layeraware_native
+2026-07-14T11:59:30Z,0,0,2,0,sanity_layeraware_native
+2026-07-14T11:59:32Z,0,0,0,0,sanity_layeraware_native
+2026-07-14T11:59:33Z,0,11916,25,1,sanity_layeraware_native
+2026-07-14T11:59:34Z,0,11978,23,1,sanity_layeraware_native
+2026-07-14T11:59:35Z,0,12076,3,0,sanity_layeraware_native
+2026-07-14T11:59:36Z,0,12104,55,36,sanity_layeraware_native
+2026-07-14T11:59:37Z,0,12104,0,0,sanity_layeraware_native

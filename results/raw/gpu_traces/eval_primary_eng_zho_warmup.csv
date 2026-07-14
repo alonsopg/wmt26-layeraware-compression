@@ -1,0 +1,9 @@
+timestamp,gpu_id,memory_used_mib,utilization_gpu_pct,utilization_memory_pct,run_id
+2026-07-14T11:38:43Z,0,0,0,0,eval_primary_eng_zho_warmup
+2026-07-14T11:38:45Z,0,0,0,0,eval_primary_eng_zho_warmup
+2026-07-14T11:38:48Z,0,0,0,0,eval_primary_eng_zho_warmup
+2026-07-14T11:38:49Z,0,0,0,0,eval_primary_eng_zho_warmup
+2026-07-14T11:38:50Z,0,11930,26,1,eval_primary_eng_zho_warmup
+2026-07-14T11:38:51Z,0,12106,24,1,eval_primary_eng_zho_warmup
+2026-07-14T11:38:52Z,0,12194,5,4,eval_primary_eng_zho_warmup
+2026-07-14T11:38:53Z,0,12204,0,0,eval_primary_eng_zho_warmup

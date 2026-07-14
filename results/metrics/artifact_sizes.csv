@@ -1,0 +1,2 @@
+timestamp_utc,system_id,model_artifact_bytes,model_artifact_gib,exclusions
+2026-07-14T11:39:00Z,layeraware-primary,8353809477,7.780,submission .venv; logs; caches; eval outputs

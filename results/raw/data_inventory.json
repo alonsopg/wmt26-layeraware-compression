@@ -1,0 +1,155 @@
+{
+  "work": "/home/paperspace/projects/wmt26-layeraware-compression/data/prepared/modelzip_work",
+  "files": [
+    {
+      "path": "data/prepared/modelzip_work/tests/ces-deu/warmup.ces-deu.ces",
+      "bytes": 11,
+      "lines": 1
+    },
+    {
+      "path": "data/prepared/modelzip_work/tests/ces-deu/warmup.ces-deu.deu",
+      "bytes": 10,
+      "lines": 1
+    },
+    {
+      "path": "data/prepared/modelzip_work/tests/ces-deu/wmt25-blind.ces-deu.ces",
+      "bytes": 297266,
+      "lines": 457
+    },
+    {
+      "path": "data/prepared/modelzip_work/tests/ces-deu/wmt25-blind.ces-deu.meta",
+      "bytes": 15479,
+      "lines": 457
+    },
+    {
+      "path": "data/prepared/modelzip_work/tests/ces-deu/wmt25-ref.ces-deu.ces",
+      "bytes": 297266,
+      "lines": 457
+    },
+    {
+      "path": "data/prepared/modelzip_work/tests/ces-deu/wmt25-ref.ces-deu.deu",
+      "bytes": 343732,
+      "lines": 457
+    },
+    {
+      "path": "data/prepared/modelzip_work/tests/ces-deu/wmt25-ref.ces-deu.meta",
+      "bytes": 15479,
+      "lines": 457
+    },
+    {
+      "path": "data/prepared/modelzip_work/tests/ces-deu/wmt25.ces-deu.ces",
+      "bytes": 297266,
+      "lines": 457
+    },
+    {
+      "path": "data/prepared/modelzip_work/tests/ces-deu/wmt25.ces-deu.deu",
+      "bytes": 343732,
+      "lines": 457
+    },
+    {
+      "path": "data/prepared/modelzip_work/tests/ces-deu/wmt25.ces-deu.meta",
+      "bytes": 15479,
+      "lines": 457
+    },
+    {
+      "path": "data/prepared/modelzip_work/tests/eng-ara_EG/warmup.eng-ara_EG.ara_EG",
+      "bytes": 25,
+      "lines": 1
+    },
+    {
+      "path": "data/prepared/modelzip_work/tests/eng-ara_EG/warmup.eng-ara_EG.eng",
+      "bytes": 11,
+      "lines": 1
+    },
+    {
+      "path": "data/prepared/modelzip_work/tests/eng-ara_EG/wmt25-blind.eng-ara_EG.eng",
+      "bytes": 638895,
+      "lines": 1496
+    },
+    {
+      "path": "data/prepared/modelzip_work/tests/eng-ara_EG/wmt25-blind.eng-ara_EG.meta",
+      "bytes": 61047,
+      "lines": 1496
+    },
+    {
+      "path": "data/prepared/modelzip_work/tests/eng-ara_EG/wmt25-ref.eng-ara_EG.ara_EG",
+      "bytes": 324719,
+      "lines": 332
+    },
+    {
+      "path": "data/prepared/modelzip_work/tests/eng-ara_EG/wmt25-ref.eng-ara_EG.eng",
+      "bytes": 208180,
+      "lines": 332
+    },
+    {
+      "path": "data/prepared/modelzip_work/tests/eng-ara_EG/wmt25-ref.eng-ara_EG.meta",
+      "bytes": 13323,
+      "lines": 332
+    },
+    {
+      "path": "data/prepared/modelzip_work/tests/eng-ara_EG/wmt25.eng-ara_EG.ara_EG",
+      "bytes": 324719,
+      "lines": 332
+    },
+    {
+      "path": "data/prepared/modelzip_work/tests/eng-ara_EG/wmt25.eng-ara_EG.eng",
+      "bytes": 208180,
+      "lines": 332
+    },
+    {
+      "path": "data/prepared/modelzip_work/tests/eng-ara_EG/wmt25.eng-ara_EG.meta",
+      "bytes": 13323,
+      "lines": 332
+    },
+    {
+      "path": "data/prepared/modelzip_work/tests/eng-zho_Hans/warmup.eng-zho_Hans.eng",
+      "bytes": 11,
+      "lines": 1
+    },
+    {
+      "path": "data/prepared/modelzip_work/tests/eng-zho_Hans/warmup.eng-zho_Hans.zho_Hans",
+      "bytes": 15,
+      "lines": 1
+    },
+    {
+      "path": "data/prepared/modelzip_work/tests/eng-zho_Hans/wmt25-blind.eng-zho_Hans.eng",
+      "bytes": 638895,
+      "lines": 1496
+    },
+    {
+      "path": "data/prepared/modelzip_work/tests/eng-zho_Hans/wmt25-blind.eng-zho_Hans.meta",
+      "bytes": 61047,
+      "lines": 1496
+    },
+    {
+      "path": "data/prepared/modelzip_work/tests/eng-zho_Hans/wmt25-ref.eng-zho_Hans.eng",
+      "bytes": 208180,
+      "lines": 332
+    },
+    {
+      "path": "data/prepared/modelzip_work/tests/eng-zho_Hans/wmt25-ref.eng-zho_Hans.meta",
+      "bytes": 13323,
+      "lines": 332
+    },
+    {
+      "path": "data/prepared/modelzip_work/tests/eng-zho_Hans/wmt25-ref.eng-zho_Hans.zho_Hans",
+      "bytes": 207191,
+      "lines": 332
+    },
+    {
+      "path": "data/prepared/modelzip_work/tests/eng-zho_Hans/wmt25.eng-zho_Hans.eng",
+      "bytes": 208180,
+      "lines": 332
+    },
+    {
+      "path": "data/prepared/modelzip_work/tests/eng-zho_Hans/wmt25.eng-zho_Hans.meta",
+      "bytes": 13323,
+      "lines": 332
+    },
+    {
+      "path": "data/prepared/modelzip_work/tests/eng-zho_Hans/wmt25.eng-zho_Hans.zho_Hans",
+      "bytes": 207191,
+      "lines": 332
+    }
+  ]
+}

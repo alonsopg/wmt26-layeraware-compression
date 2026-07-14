@@ -1,0 +1,21 @@
+# Submitted form fields
+
+- Submission status: confirmed at `2026-07-14T14:09:21Z`
+- Institution: Independent researcher
+- Team/system: `alonso` / `layeraware-native-mlp-q4`
+- Contact: `mail@alonsopg.com`
+- Track: constrained
+- Language pair: `eng-zho_Hans`
+- Designation: PRIMARY
+- Maximum batch size: 8
+- Consent to release system outputs for research: yes
+- Base model: `google/gemma-3-12b-it`
+- Method: native BitsAndBytes NF4 on 144 text-transformer MLP gate/up/down projections; attention, embeddings, norms, `lm_head`, and vision modules preserved in BF16
+- Data used: no calibration or fine-tuning data
+- Local hardware: NVIDIA RTX A6000, 49,140 MiB
+- Model/artifact path: `submissions/layeraware-native-mlp-q4/workdir/model`
+- Submission ZIP: `artifacts/zips/layeraware-native-mlp-q4.zip`
+- ZIP SHA-256: `f4ca6461b1faf5da6859d1d3d8972d575ef20b2e0d021bd03232a054aa578e65`
+- Public repository: <https://huggingface.co/alonsopg/wmt26-layeraware-native-mlp-q4>
+- Submitted repository revision: `609c25680eb89286a04cd70747da42c7f3c98412`
+- Receipt: `results/raw/wmt26_form_submission_receipt.json`

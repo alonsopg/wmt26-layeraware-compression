@@ -1,0 +1,15 @@
+{
+  "system_id": "organizer-bnb-q4",
+  "batch_size": 8,
+  "lines": 332,
+  "processor_load_seconds": 4.810638038999969,
+  "model_load_seconds": 13.292175164999207,
+  "generation_seconds": 754.0657345930003,
+  "generation_seconds_per_line": 2.2712823331114467,
+  "end_to_end_seconds": 772.1874468699998,
+  "torch_peak_allocated_mib": 10412.126953125,
+  "chrf": 27.67390408290375,
+  "bleu": 30.804466578464943,
+  "valid_line_count": true,
+  "output": "/home/paperspace/projects/wmt26-layeraware-compression/results/predictions/organizer-bnb-q4.full331.txt"
+}

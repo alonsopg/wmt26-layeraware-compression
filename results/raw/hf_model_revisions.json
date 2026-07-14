@@ -1,0 +1,8 @@
+{
+  "google/gemma-3-12b-it": {
+    "revision": "96b6f1eccf38110c56df3a15bffe176da04bfd80",
+    "checked_utc": "2026-07-14T11:30:00Z",
+    "gated_auth_status": "accessible via cached Hugging Face CLI login as alonsopg",
+    "local_path": null
+  }
+}

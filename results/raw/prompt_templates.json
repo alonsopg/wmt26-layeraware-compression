@@ -1,0 +1,5 @@
+{
+  "ces-deu": "Translate the following text from Czech to German. Output only the translation.\n\n{source}",
+  "eng-zho_Hans": "Translate the following text from English to Simplified Chinese. Output only the translation.\n\n{source}",
+  "eng-ara_EG": "Translate the following text from English to Egyptian Arabic. Output only the translation.\n\n{source}"
+}

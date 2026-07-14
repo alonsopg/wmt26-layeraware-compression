@@ -1,0 +1,11 @@
+{
+  "method": "Quantize(digits=3,dtype=f4,astype=f2)+Zstd(level=3)",
+  "selected_tensors": 144,
+  "all_tensor_raw_bytes": 24374650080,
+  "selected_raw_bytes": 16986931200,
+  "selected_encoded_bytes": 8094458520,
+  "nonselected_raw_bytes": 7387718880,
+  "auxiliary_files_bytes": 39370422,
+  "estimated_codec_artifact_bytes": 15521547822,
+  "elapsed_seconds": 237.27102161699986
+}

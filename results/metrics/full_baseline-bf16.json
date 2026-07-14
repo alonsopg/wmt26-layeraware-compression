@@ -1,0 +1,15 @@
+{
+  "system_id": "baseline-bf16",
+  "batch_size": 8,
+  "lines": 332,
+  "processor_load_seconds": 4.731203037000341,
+  "model_load_seconds": 11.946111330999884,
+  "generation_seconds": 449.3938723929996,
+  "generation_seconds_per_line": 1.3535960011837336,
+  "end_to_end_seconds": 466.1015819210006,
+  "torch_peak_allocated_mib": 25643.65869140625,
+  "chrf": 28.44897074083511,
+  "bleu": 31.645788586404592,
+  "valid_line_count": true,
+  "output": "/home/paperspace/projects/wmt26-layeraware-compression/results/predictions/baseline-bf16.full331.txt"
+}

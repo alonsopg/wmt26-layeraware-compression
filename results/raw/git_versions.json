@@ -1,0 +1,4 @@
+{
+  "organizer": {"url": "https://github.com/thammegowda/wmt26-model-compression", "commit": "a4707272bf8605a75faa9968af8951dc85bd174c"},
+  "iwslt_local": {"path": "/home/paperspace/projects/iwslt2026-compression", "commit": "a017da671872aa86fa7495688844f4e961c4d512"}
+}

@@ -1,0 +1,28 @@
+# Local Python environments and caches
+env/
+**/.venv/
+**/.cache/
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+# Organizer checkout and regenerated data
+external/
+data/prepared/
+
+# Generated model workspaces and heavyweight artifacts
+artifacts/models/
+**/workdir/
+*.safetensors
+*.gguf
+*.pt
+*.pth
+*.bin
+*.zip
+
+# Runtime/editor residue
+*.log
+.DS_Store
+.idea/
+.vscode/

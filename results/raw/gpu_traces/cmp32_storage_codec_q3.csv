@@ -1,0 +1,4 @@
+timestamp,gpu_id,memory_used_mib,utilization_gpu_pct,utilization_memory_pct,run_id
+2026-07-14T12:09:43Z,0,0,0,0,cmp32_storage_codec_q3
+2026-07-14T12:09:45Z,0,0,3,0,cmp32_storage_codec_q3
+2026-07-14T12:09:47Z,0,0,2,0,cmp32_storage_codec_q3

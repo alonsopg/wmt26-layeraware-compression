@@ -1,0 +1,2 @@
+timestamp,gpu_id,memory_used_mib,utilization_gpu_pct,utilization_memory_pct,run_id
+2026-07-14T11:38:09Z,0,0,2,0,sanity_primary

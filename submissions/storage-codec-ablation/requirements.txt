@@ -1,0 +1,3 @@
+torch==2.7.0
+transformers>=4.51.1,<5
+numcodecs==0.16.5

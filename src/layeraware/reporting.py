@@ -1,0 +1,1 @@
+RESULT_COLUMNS = "timestamp_utc system_id track lang_pair base_model compression_method layer_policy quantization_backend calibration_data fine_tuning_data batch_size num_source_lines wall_seconds seconds_per_line model_load_seconds peak_vram_mib artifact_bytes artifact_gib output_path valid_line_count chrf bleu comet metricx notes".split()
