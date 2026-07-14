@@ -4,6 +4,7 @@ Reproducible code and evidence for team **alonso**'s WMT26 Model Compression sub
 
 - Submitted model and runnable bundle: [alonsopg/wmt26-layeraware-native-mlp-q4](https://huggingface.co/alonsopg/wmt26-layeraware-native-mlp-q4)
 - Organizer contract: [thammegowda/wmt26-model-compression](https://github.com/thammegowda/wmt26-model-compression#submission-contract)
+- ACL-format system-paper draft: [`paper/main.pdf`](paper/main.pdf) ([LaTeX source](paper/main.tex))
 - Submission status and exact revision: [`SUBMISSION_HANDOFF.md`](SUBMISSION_HANDOFF.md)
 - Chronological experiment log: [`STATUS.md`](STATUS.md)
 
@@ -68,3 +69,14 @@ Hardware-dependent speed and memory numbers will differ from the recorded RTX A6
 ## Submission record
 
 The organizer form returned HTTP 200 and a Google Forms confirmation marker at `2026-07-14T14:09:21Z`. The client-side record is [`results/raw/wmt26_form_submission_receipt.json`](results/raw/wmt26_form_submission_receipt.json). Organizer-side acknowledgement must come from the task organizers; the receipt does not expose their private response sheet.
+
+## Paper draft
+
+Build the five-page non-anonymous WMT26 system-paper draft with:
+
+```bash
+git submodule update --init --recursive
+make -C paper
+```
+
+The current draft uses the official ACL style, reports all local evidence, and leaves official WMT26 blind-test and organizer H100 results as explicit pre-submission follow-ups.

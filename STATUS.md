@@ -137,3 +137,13 @@ This log is append-only and uses UTC timestamps.
 - Result: the complete 193-file lightweight reproducibility snapshot is published, with heavyweight submitted weights linked to the public Hugging Face repository.
 - Errors resolved: the first push lacked an HTTPS credential helper; `gh auth setup-git` connected Git to the approved account and the retry succeeded.
 - Next: verify anonymous access and tag the finalized repository snapshot.
+
+## 2026-07-14T14:47:37Z — ACL-format system-paper draft complete
+
+- Sources checked: current WMT26 paper instructions (non-anonymous system paper, normally 4--6 pages, EMNLP/ACL format); official ACL style repository; published IWSLT 2026 predecessor paper; recorded WMT26 metrics, predictions, configs, and traces.
+- Created: `paper/main.tex`, `paper/references.bib`, `paper/Makefile`, `paper/README.md`, `paper/TODO.md`, and compiled `paper/main.pdf`; pinned ACL style submodule revision `d5adc823ff0f80f98c80405ca0ab66c68e684409`.
+- Draft scope: task/setup, organizer BF16 and global-q4 baselines, transferred q3+Zstd method, selective native NF4 extension, full local results and significance, reproducibility, limitations, conclusion, and generative-writing disclosure.
+- Important qualification: organizer global q4 is default FP4/no-double-quant/FP32-compute, while the submitted system is selective NF4/double-quant/BF16-compute; the paper explicitly identifies this as a confound rather than attributing the full gain to layer selection.
+- Validation: five A4 pages; 173-word abstract; all references and cross-references resolved; no LaTeX warnings or overfull boxes; all PDF fonts embedded; visual inspection passed.
+- Errors/blockers: no drafting blocker. Official WMT26 blind-test metrics and organizer H100 measurements are not yet available and must be added before final submission if released.
+- Next: human proofreading, insert official results/overview citation when available, then submit the paper by August 7, 2026 AoE.
