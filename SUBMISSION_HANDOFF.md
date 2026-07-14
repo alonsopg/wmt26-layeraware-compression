@@ -34,6 +34,7 @@ sha256sum -c layeraware-native-mlp-q4.sha256
 - Team: `alonso`
 - Contact: `mail@alonsopg.com`
 - Public repository: <https://huggingface.co/alonsopg/wmt26-layeraware-native-mlp-q4>
+- Experiment and reproducibility repository: <https://github.com/alonsopg/wmt26-layeraware-compression>
 - Submitted repository revision: `609c25680eb89286a04cd70747da42c7f3c98412`
 - Maximum batch size: `8`
 - Consent to release system outputs for research: yes

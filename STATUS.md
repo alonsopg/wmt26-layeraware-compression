@@ -128,3 +128,12 @@ This log is append-only and uses UTC timestamps.
 - Result: 193 tracked files totaling approximately 3.02 MiB, ready for the initial commit and GitHub publication.
 - External blocker: this machine has no account-wide GitHub credential; its available GitHub SSH key is scoped to another repository and cannot create a new repository.
 - Next: authenticate GitHub account `alonsopg`, create `wmt26-layeraware-compression`, and push `main`.
+
+## 2026-07-14T14:31:39Z — GitHub publication complete
+
+- Commands: installed the GitHub CLI; completed GitHub device authorization as `alonsopg`; created the public repository; configured Git's authenticated HTTPS helper; pushed `main`.
+- Repository: `https://github.com/alonsopg/wmt26-layeraware-compression`.
+- Initial publication commit: `6095698` (`Publish WMT26 layer-aware compression experiment`).
+- Result: the complete 193-file lightweight reproducibility snapshot is published, with heavyweight submitted weights linked to the public Hugging Face repository.
+- Errors resolved: the first push lacked an HTTPS credential helper; `gh auth setup-git` connected Git to the approved account and the retry succeeded.
+- Next: verify anonymous access and tag the finalized repository snapshot.
