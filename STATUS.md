@@ -161,3 +161,10 @@ This log is append-only and uses UTC timestamps.
 - Recast the manuscript in impersonal academic prose, removing first-person plural phrasing.
 - Removed the generative-writing declaration from the manuscript.
 - Rebuilt the PDF and reran the ACL publication checks.
+
+## 2026-09-05T16:18:34Z — Camera-ready submission packager added
+
+- Added `scripts/package_camera_ready.sh`, the `make -C paper submission` target, and `paper/SUBMISSION.md` with the final upload checklist.
+- The packager rebuilds the paper, checks the final LaTeX logs, A4 page size, embedded fonts, and ACL PubCheck, then verifies an isolated build using only the packaged source.
+- Generated `wmt26-submission-46-camera-ready.pdf`, its standalone source ZIP, and SHA-256 checksums under the ignored local directory `artifacts/camera-ready/`.
+- Validation: six A4 pages; ACL PubCheck returned `All Clear!`; both checksums passed; ZIP integrity passed; the packaged PDF matches `paper/main.pdf` byte for byte.

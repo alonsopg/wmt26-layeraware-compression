@@ -1,6 +1,6 @@
 LATEXMK ?= latexmk
 
-.PHONY: all clean
+.PHONY: all clean submission
 
 all: main.pdf
 
@@ -9,3 +9,6 @@ main.pdf: main.tex references.bib acl-style-files/acl.sty acl-style-files/acl_na
 
 clean:
 	$(LATEXMK) -C main.tex
+
+submission:
+	../scripts/package_camera_ready.sh

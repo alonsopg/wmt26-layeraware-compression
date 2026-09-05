@@ -5,6 +5,7 @@ Reproducible code and evidence for the WMT26 Model Compression submission `layer
 - Submitted model and runnable bundle: [alonsopg/wmt26-layeraware-native-mlp-q4](https://huggingface.co/alonsopg/wmt26-layeraware-native-mlp-q4)
 - Organizer contract: [thammegowda/wmt26-model-compression](https://github.com/thammegowda/wmt26-model-compression#submission-contract)
 - ACL-format camera-ready system paper: [`paper/main.pdf`](paper/main.pdf) ([LaTeX source](paper/main.tex))
+- Camera-ready packager and upload checklist: [`paper/SUBMISSION.md`](paper/SUBMISSION.md)
 - Submission status and exact revision: [`SUBMISSION_HANDOFF.md`](SUBMISSION_HANDOFF.md)
 - Chronological experiment log: [`STATUS.md`](STATUS.md)
 

@@ -13,6 +13,7 @@ data/prepared/
 
 # Generated model workspaces and heavyweight artifacts
 artifacts/models/
+artifacts/camera-ready/
 **/workdir/
 *.safetensors
 *.gguf

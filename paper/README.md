@@ -8,6 +8,14 @@ Build from the repository root with:
 make -C paper
 ```
 
+Create the validated PDF and standalone source bundle with:
+
+```bash
+make -C paper submission
+```
+
+See [`SUBMISSION.md`](SUBMISSION.md) for the generated filenames and upload checklist.
+
 The ACL style is pinned as the `paper/acl-style-files` Git submodule. Clone with `--recurse-submodules`, or initialize an existing clone with:
 
 ```bash
