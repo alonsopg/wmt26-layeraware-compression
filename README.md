@@ -1,6 +1,6 @@
 # WMT26 Layer-Aware Compression
 
-Reproducible code and evidence for team **alonso**'s WMT26 Model Compression submission, `layeraware-native-mlp-q4`. The system is a constrained-track English-to-Simplified-Chinese extension of `google/gemma-3-12b-it`. It applies native BitsAndBytes NF4 with double quantization to the 144 MLP gate/up/down projections in the 48 text-transformer blocks while preserving attention, embeddings, normalization, `lm_head`, and vision modules in BF16.
+Reproducible code and evidence for the WMT26 Model Compression submission `layeraware-native-mlp-q4`. The system is a constrained-track English-to-Simplified-Chinese extension of `google/gemma-3-12b-it`. It applies native BitsAndBytes NF4 with double quantization to the 144 MLP gate/up/down projections in the 48 text-transformer blocks while preserving attention, embeddings, normalization, `lm_head`, and vision modules in BF16.
 
 - Submitted model and runnable bundle: [alonsopg/wmt26-layeraware-native-mlp-q4](https://huggingface.co/alonsopg/wmt26-layeraware-native-mlp-q4)
 - Organizer contract: [thammegowda/wmt26-model-compression](https://github.com/thammegowda/wmt26-model-compression#submission-contract)

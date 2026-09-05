@@ -1,6 +1,6 @@
 # WMT26 camera-ready system paper
 
-This directory contains the non-anonymous ACL-format camera-ready paper for team `alonso`'s WMT26 Model Compression system.
+This directory contains the non-anonymous ACL-format camera-ready paper for the WMT26 Model Compression submission.
 
 Build from the repository root with:
 
