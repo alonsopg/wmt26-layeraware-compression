@@ -26,7 +26,7 @@ A WMT26 English-to-Chinese Submission}
 \maketitle
 
 \begin{abstract}
-This paper describes the alonso submission to the constrained English-to-Simplified-Chinese track of the WMT26 Model Compression shared task. Starting from Gemma~3 12B, we apply native BitsAndBytes NF4 with double quantization to the 144 gate, up, and down projections in the model's 48 text-transformer MLP blocks. Attention projections, embeddings, normalization layers, the language-model head, and vision modules remain in BF16. The method requires no calibration or fine-tuning data and produces a mixed checkpoint whose quantized weights remain low-bit at inference. On 332 reference-backed WMT25 English--Chinese segments, the system obtains 28.30 chrF and 31.37 BLEU, compared with 27.67 chrF and 30.80 BLEU for the organizer global-q4 baseline. The gains are significant under paired bootstrap resampling, while the artifact is 10.99~GiB and peak local VRAM is 14.64~GiB. A transferred selected-layer q3+Zstd codec reaches statistically indistinguishable quality but expands to BF16-like memory after decoding. These local results support selective native quantization as a practical extension of storage-oriented layer-aware compression; official WMT26 quality and H100 measurements remain pending.
+This paper describes the alonso submission to the constrained English-to-Simplified-Chinese track of the WMT26 Model Compression shared task. Starting from Gemma~3 12B, we apply native BitsAndBytes NF4 with double quantization to the 144 gate, up, and down projections in the model's 48 text-transformer MLP blocks. Attention projections, embeddings, normalization layers, the tied language-model head, and vision modules remain in BF16. The method requires no calibration or fine-tuning data and produces a mixed checkpoint whose quantized weights remain low-bit at inference. On the official 945-segment blind set, the system scores 0.7669 CometKiwi-XXL and 2.7836 MetricX-24-XXL, slightly improving on the organizer global-q4 baseline's 0.7665 and 2.8147, respectively. Its 11.8~GB artifact is 48.4\% of BF16 size, and H100 throughput is essentially tied with global q4 (866.9 versus 867.9 source characters/s). On 332 reference-backed WMT25 segments, its chrF and BLEU gains over global q4 are significant under paired bootstrap resampling. A transferred selected-layer q3+Zstd codec reaches statistically indistinguishable local quality but expands to BF16-like memory after decoding.
 \end{abstract}
 
 \section{Introduction}
@@ -44,7 +44,7 @@ We make three contributions:
     \item a deployment-oriented analysis that separates serialized size, post-load VRAM, generation speed, and translation quality.
 \end{itemize}
 
-The main local result is a trade-off rather than dominance on every dimension. Selective native q4 improves significantly over the smaller organizer global-q4 baseline by 0.63 chrF and 0.56 BLEU, but uses 2.60~GiB more peak VRAM. It nearly matches BF16 quality while reducing artifact size by 51.7\% and peak VRAM by 44.7\%. The official WMT26 blind-test and H100 results were not available when this draft was prepared.
+The main result is a trade-off rather than dominance on every dimension. Locally, selective native q4 improves significantly over the smaller organizer global-q4 baseline by 0.63 chrF and 0.56 BLEU, but uses 2.60~GiB more peak VRAM. The official blind evaluation confirms a small neural-metric advantage over global q4 at nearly identical H100 throughput, while BF16 remains slightly better in both official quality and throughput.
 
 \section{Task and Experimental Setting}
 
@@ -56,13 +56,17 @@ We submit only English--Simplified Chinese (\texttt{eng-zho\_Hans}) in the const
 
 \subsection{Local development data}
 
-Local comparisons use the reference-backed WMT25 English--Chinese data distributed through the WMT26 organizer repository. The prepared set contains 332 source--reference pairs. We use these past-test references only for evaluation; they are not used to select calibration examples, tune weights, or train adapters. All reported quality scores in this paper are therefore development results, not official WMT26 blind-test scores.
+Local comparisons use the reference-backed WMT25 English--Chinese data distributed through the WMT26 organizer repository. The prepared set contains 332 source--reference pairs. We use these past-test references only for evaluation; they are not used to select calibration examples, tune weights, or train adapters. We distinguish these development scores from the official WMT26 blind-test results reported in Section~\ref{sec:official-results}.
+
+\subsection{Official blind evaluation}
+
+The organizer evaluated 945 English--Chinese source segments without references using CometKiwi-XXL (higher is better) \citep{rei-etal-2023-scaling} and MetricX-24-XXL (lower is better) \citep{juraska-etal-2024-metricx}. Evaluation ran one system per NVIDIA H100 80~GB GPU. The released throughput is source characters divided by wall time at the largest evaluated batch; the released peak-memory field is host RSS, not GPU VRAM.\footnote{Organizer results and evaluator journal at revision \texttt{652d2bf}: \url{https://github.com/thammegowda/wmt26-model-compression/tree/652d2bf}.}
 
 \subsection{Inference and metrics}
 
 Every system receives the same organizer translation prompt: ``Translate the following text from English to Chinese. Return only the translation, with no explanation, labels, or quotes.'' The Gemma chat template is applied. Inputs are length-sorted for batching, then restored to original order. Decoding is greedy (no sampling, one beam) with batch size 8. The generation budget is the smaller of 1,024 tokens and the longest source length in the batch plus 64 tokens. Each run produces one line per source line.
 
-We report lowercased chrF2 \citep{popovic-2015-chrf} and lowercased BLEU with SacreBLEU~2.5.1 and its Chinese tokenizer \citep{post-2018-call}. Statistical comparisons use SacreBLEU paired bootstrap resampling with 10,000 trials, fixed seed 12345 \citep{koehn-2004-statistical}. The metric signatures are \texttt{case:lc|tok:zh|smooth:exp} for BLEU and \texttt{case:lc|nc:6|nw:0|beta:2} for chrF.
+We report lowercased chrF2 \citep{popovic-2015-chrf} and lowercased BLEU with SacreBLEU~2.5.1 and its Chinese tokenizer \citep{post-2018-call}. Statistical comparisons use SacreBLEU paired bootstrap resampling with 10,000 trials, fixed seed 12345 \citep{koehn-2004-statistical}. The complete paired-test signatures are \nolinkurl{nrefs:1|bs:10000|seed:12345|case:lc|eff:no|tok:zh|smooth:exp|version:2.5.1} for BLEU and \nolinkurl{nrefs:1|bs:10000|seed:12345|case:lc|eff:yes|nc:6|nw:0|space:no|version:2.5.1} for chrF2.
 
 Local performance is measured on one NVIDIA RTX A6000 with 48~GiB. Each system is loaded in a fresh process. Generation time excludes processor and model loading; VRAM is the maximum observed by one-second \texttt{nvidia-smi} polling over the run. Artifact size is the serialized model payload, not the compressed submission ZIP. Because WMT26 uses a different H100 environment, local speed and memory values are diagnostic rather than official.
 
@@ -103,7 +107,11 @@ Storage is measured by actually encoding all selected tensors. The encoded selec
 
 Gemma~3 12B has 48 text-transformer blocks. For every block, we select the three gated-MLP projections: \texttt{gate\_proj}, \texttt{up\_proj}, and \texttt{down\_proj}. The resulting 144 matrices contain 8.493 billion weight scalars. All attention projections, embeddings, normalization layers, the language-model head, and all vision-tower modules are placed on a skip list and retained in BF16.
 
+Here, \emph{layer-aware} means module-class-selective rather than block-adaptive: the same MLP-only policy is applied uniformly across all 48 text blocks.
+
 The selected modules use BitsAndBytes NF4, double quantization, and BF16 computation. NF4 provides a 4-bit codebook designed for approximately normally distributed weights, while double quantization reduces overhead by quantizing the quantization constants \citep{dettmers-etal-2023-qlora}. After model construction, we verify that the set of \texttt{Linear4bit} modules exactly equals the 144 intended targets before serializing the checkpoint with SafeTensors. The saved \texttt{layer\_policy.json} records every target and preserved linear module.
+
+Inspection of the serialized tensor payload gives the following size breakdown: 4.08~GiB for quantized text-MLP tensors, 4.22~GiB for other BF16 text tensors, 1.88~GiB for the tied token embedding/output head, and 0.78~GiB for the vision tower and multimodal projector; format and auxiliary-file overhead is about 33~MiB. Thus removing the unused vision path could save at most about 0.78~GiB before compatibility overhead, while quantizing the tied embedding/output matrix would target a larger 1.88~GiB component. We did not test either change.
 
 Unlike the codec ablation, the submitted checkpoint retains its quantized representation when loaded. No custom decompression stage or reconstructed BF16 cache is required. The system passed the organizer sanity check, including the required line-count contract, and the final portable archive passed checksum and ZIP-integrity verification.
 
@@ -130,7 +138,7 @@ Layer-aware native q4 & 28.30 & 31.37 & 2.175 & 14.64 & 10.99 \\
 \label{tab:main-results}
 \end{table*}
 
-The submitted layer-aware system improves over organizer global q4 by 0.63 chrF and 0.56 BLEU. This recovery costs 3.21~GiB in artifact size and 2.60~GiB in peak VRAM, although local generation is 4.2\% faster. Relative to BF16, the submitted artifact is 51.7\% smaller and peak VRAM is 44.7\% lower, with losses of 0.15 chrF and 0.28 BLEU. It therefore occupies an intermediate operating point between the highest-quality BF16 system and the smallest global-q4 baseline.
+The submitted layer-aware system improves over organizer global q4 by 0.63 chrF and 0.56 BLEU. This recovery costs 3.21~GiB in artifact size and 2.60~GiB in peak VRAM, although local generation is 4.2\% faster. Relative to BF16, the submitted artifact is 51.7\% smaller and peak VRAM is 44.7\% lower, with losses of 0.15 chrF and 0.28 BLEU. Its 2.175 versus 1.354 seconds/line is a 60.6\% local slowdown, so BF16 dominates it on the local quality--speed plane. The submitted system instead occupies an intermediate quality--size and quality--memory operating point.
 
 \subsection{Paired significance}
 
@@ -139,7 +147,7 @@ Table~\ref{tab:significance} gives paired-bootstrap differences for the submitte
 \begin{table}[t]
 \centering
 \small
-\begin{tabular}{lrrrr}
+\begin{tabular}{@{}lrrrr@{}}
 \toprule
 Baseline & $\Delta$chrF & $p$ & $\Delta$BLEU & $p$ \\
 \midrule
@@ -154,6 +162,27 @@ BF16 & $-$0.15 & .0897 & $-$0.28 & .0339 \\
 
 These tests measure reproducibility of score differences on the local set, not practical significance or blind-test generalization. They are especially useful for the global-q4 comparison: the 0.56 BLEU difference is small in absolute terms, but unlikely to result from segment sampling alone under this test.
 
+\subsection{Official blind-test results}
+\label{sec:official-results}
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+System & CK $\uparrow$ & MX $\downarrow$ & GB & char/s \\
+\midrule
+Organizer BF16 & 0.7695 & 2.7728 & 24.4 & 881.1 \\
+Organizer global q4 & 0.7665 & 2.8147 & 8.4 & 867.9 \\
+Layer-aware native q4 & 0.7669 & 2.7836 & 11.8 & 866.9 \\
+\bottomrule
+\end{tabular}
+\caption{Official WMT26 English--Chinese blind results. CK is CometKiwi-XXL; MX is MetricX-24-XXL. Size uses decimal GB and throughput is source characters/s on the organizer H100 environment.}
+\label{tab:official-results}
+\end{table}
+
+The submission appears eighth among 20 constrained systems in the organizer table ordered by CometKiwi-XXL. Relative to global q4, it gains 0.0004 CometKiwi and improves MetricX by 0.0311, although the organizer reports no paired significance test and global q4 remains 3.45~GB smaller. Relative to BF16, it loses 0.0026 CometKiwi and 0.0108 MetricX while reducing size by 51.6\%. H100 throughput is 0.1\% below global q4 and 1.6\% below BF16. Thus the large local A6000 slowdown relative to BF16 does not transfer to official H100 throughput, but compression provides no speed gain there either. Because the released \texttt{peak GB} measure is host RSS rather than GPU memory, the official results do not establish whether the local VRAM reduction transfers to H100.
+
 \subsection{Native q4 versus the previous codec}
 
 The transferred q3+Zstd method and native selective q4 have essentially the same local translation quality. Their deployment behavior is different. The codec artifact is 14.46~GiB and expands to 26.43~GiB peak VRAM after decoding, nearly identical to BF16's 26.46~GiB. Native q4 reduces artifact size by 24.0\% and post-load peak VRAM by 44.6\% relative to the codec. This is the main technical extension over the previous method: layer awareness is retained, but compression is represented in a form that survives model loading.
@@ -162,27 +191,27 @@ The codec's apparent generation speed should be treated cautiously. Its timed ge
 
 \section{Submission and Reproducibility}
 
-The system was submitted as team \texttt{alonso}'s primary constrained English--Chinese entry. The public Hugging Face repository contains three SafeTensors shards, tokenizer/processor files, the quantization and layer-policy configurations, setup and run scripts, and pinned runtime requirements. The submitted repository revision begins \texttt{609c2568}. The serialized model payload is 11,804,446,040 bytes (10.99~GiB); the experiment repository records the complete revision and final ZIP SHA-256 checksum.
+The system was submitted as team \texttt{alonso}'s primary constrained English--Chinese entry. The public Hugging Face repository contains three SafeTensors shards, tokenizer/processor files, the quantization and layer-policy configurations, setup and run scripts, and pinned runtime requirements. The submitted repository revision begins \texttt{609c2568}. The organizer measured 11,804,443,105 on-disk bytes (11.8044 decimal GB, or 10.99~GiB); the experiment repository records the complete revision and final ZIP SHA-256 checksum. The package passed the organizer's first H100 sanity run without participant-side remediation.
 
 Experiments use Transformers~4.57.6, BitsAndBytes~0.45.3, PyTorch~2.7.0, and SacreBLEU~2.5.1. The experiment repository includes model-policy inventories, every prediction used in Tables~\ref{tab:main-results} and~\ref{tab:significance}, timing JSON, one-second GPU traces, exact artifact-size measurements, significance output, and the organizer sanity-check record. Large model files remain in the Hugging Face repository rather than GitHub.
 
 \section{Limitations}
 
-First, the evidence in this draft is local. Evaluation uses one RTX A6000 rather than the organizer's H100, and WMT26 blind-test scores were unavailable. Kernel support and hardware can change the relative speed and memory behavior. The study also covers only English--Chinese and 332 WMT25 segments; conclusions may not transfer to Czech--German, English--Egyptian Arabic, other domains, or longer test sets.
+First, the controlled development comparison uses one RTX A6000 rather than the organizer's H100. Official H100 throughput changes the relative speed picture substantially, and the organizer did not release peak GPU-memory measurements, so local VRAM portability remains unresolved. The study also covers only English--Chinese; conclusions may not transfer to Czech--German, English--Egyptian Arabic, or other domains.
 
-Second, local quality is limited to chrF and BLEU. The official task uses additional metrics, including COMET, MetricX, and LLM-based assessment. A small gain under lexical overlap metrics may not correspond to a human-perceptible improvement or to the official ranking.
+Second, paired significance is available only for local chrF and BLEU. The official CometKiwi and MetricX results agree directionally with the local comparison against global q4, but their margins are small and no paired significance or human evaluation is available. We therefore do not claim that the neural-metric differences are significant or human-perceptible.
 
 Third, the practical organizer comparison is confounded: global q4 uses default FP4 without double quantization and FP32 compute, while the submitted system uses selective NF4 with double quantization and BF16 compute. A complete factorial ablation would compare global and selective policies under identical FP4 and NF4 configurations. The present results show that the submitted recipe outperforms the organizer recipe locally; they do not attribute the entire gain to layer selection alone.
 
 Fourth, the codec storage figure combines an exactly measured encoded selected-weight payload with raw non-selected tensor bytes and auxiliary files. Its runtime emulation reproduces the codec's q3 rounding, but omits file I/O and Zstandard decompression. It therefore supports quality, storage, and post-decode-memory comparisons, not a full latency comparison.
 
-Finally, the fixed policy preserves all vision modules even though the submitted direction is text-only, and it does not investigate per-layer sensitivity or calibration-aware mixed precision. Removing unused multimodal components or learning a finer-grained allocation could improve the Pareto trade-off, but would require additional compatibility testing.
+Finally, the fixed policy preserves all vision modules even though the submitted direction is text-only, uses no permitted calibration data, and does not investigate per-layer sensitivity or calibration-aware mixed precision. Removing unused multimodal components or learning a finer-grained allocation could improve the Pareto trade-off, but would require additional compatibility testing.
 
 \section{Conclusion}
 
-This paper presented team alonso's WMT26 constrained English--Chinese submission, a mixed Gemma~3 12B checkpoint that natively quantizes only the text transformer's MLP gate, up, and down projections. On the local WMT25 reference set, the method significantly improves chrF and BLEU over the organizer global-q4 baseline while remaining larger in storage and VRAM. It nearly preserves BF16 quality with roughly half the artifact size and 44.7\% lower peak memory.
+This paper presented team alonso's WMT26 constrained English--Chinese submission, a mixed Gemma~3 12B checkpoint that natively quantizes only the text transformer's MLP gate, up, and down projections. On the local WMT25 reference set, the method significantly improves chrF and BLEU over the organizer global-q4 baseline while remaining larger in storage and VRAM. Official blind results show the same direction under CometKiwi-XXL and MetricX-24-XXL: quality is slightly better than global q4 and slightly below BF16, with nearly identical H100 throughput to both. The artifact is 48.4\% of BF16 size.
 
-The comparison with selected-layer q3+Zstd clarifies why native representation matters. The codec preserves quality but recovers BF16-like memory after decoding; native selective q4 retains low-bit storage during inference. These findings provide evidence that the selected-layer idea can transfer from speech translation to text MT in a more deployment-relevant form. The final assessment depends on the official WMT26 blind test and standardized H100 evaluation.
+The comparison with selected-layer q3+Zstd clarifies why native representation matters. The codec preserves quality but recovers BF16-like memory after decoding; native selective q4 retains low-bit storage during inference. These findings provide evidence that the selected-layer idea can transfer from speech translation to text MT in a more deployment-relevant form. The official evaluation supports a useful quality--size operating point, while leaving matched quantizer ablations and standardized GPU-memory measurement for future work.
 
 \section*{Declaration of Generative Writing Assistance}
 

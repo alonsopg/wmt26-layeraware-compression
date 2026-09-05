@@ -147,3 +147,11 @@ This log is append-only and uses UTC timestamps.
 - Validation: five A4 pages; 173-word abstract; all references and cross-references resolved; no LaTeX warnings or overfull boxes; all PDF fonts embedded; visual inspection passed.
 - Errors/blockers: no drafting blocker. Official WMT26 blind-test metrics and organizer H100 measurements are not yet available and must be added before final submission if released.
 - Next: human proofreading, insert official results/overview citation when available, then submit the paper by August 7, 2026 AoE.
+
+## 2026-09-05T14:37:37Z — Camera-ready reviewer feedback addressed
+
+- Added the official 945-segment WMT26 blind-test CometKiwi-XXL and MetricX-24-XXL results, organizer H100 throughput, official artifact size, and organizer sanity outcome from evaluation revision `652d2bf`.
+- Addressed the reviews minimally: stated the 60.6% local slowdown versus BF16, distinguished H100 throughput from unavailable H100 GPU-memory measurement, retained the unmatched FP4/NF4 comparison as a limitation, added the serialized size breakdown, reported complete SacreBLEU signatures, and clarified the use of “layer-aware.”
+- Added `paper/REVIEW_RESPONSE.md` and `results/metrics/official_wmt26_eng_zho.tsv` as concise provenance records.
+- Validation: six A4 pages; LaTeX build passed; no overfull boxes or unresolved citations/references; all fonts embedded; visual inspection passed; `aclpubcheck -p other paper/main.pdf` returned `All Clear!`.
+- Remaining human checks: confirm author metadata against the submission system, inspect venue-specific camera-ready instructions, proofread, and add the WMT26 overview citation if its final bibliographic record becomes available.

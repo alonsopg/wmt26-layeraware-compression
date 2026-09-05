@@ -1,6 +1,6 @@
-# WMT26 system paper draft
+# WMT26 camera-ready system paper
 
-This directory contains the non-anonymous ACL-format draft for team `alonso`'s WMT26 Model Compression system paper.
+This directory contains the non-anonymous ACL-format camera-ready paper for team `alonso`'s WMT26 Model Compression system.
 
 Build from the repository root with:
 
@@ -14,6 +14,6 @@ The ACL style is pinned as the `paper/acl-style-files` Git submodule. Clone with
 git submodule update --init --recursive
 ```
 
-Current status: local-development results are complete; official WMT26 blind-test quality and organizer H100 measurements must be inserted when released. The draft deliberately labels every current measurement as local and lists the global-FP4 versus selective-NF4 configuration confound.
+Current status: the paper includes the official WMT26 blind-test CometKiwi-XXL, MetricX-24-XXL, artifact-size, and H100-throughput results. It keeps local A6000 results clearly separated, states that the organizer's released peak-memory field is host RSS rather than GPU VRAM, and retains the global-FP4 versus selective-NF4 configuration confound.
 
-Official WMT26 guidance says system papers are non-anonymous and normally 4--6 pages, use EMNLP/ACL formatting, and are due August 7, 2026 AoE. Check the task mailing list and WMT26 page again before submission in case instructions change.
+Official WMT26 guidance says system papers are non-anonymous and normally 4--6 pages and use EMNLP/ACL formatting. Before uploading, confirm that the author metadata exactly matches the submission system and follow any venue-specific camera-ready instructions.

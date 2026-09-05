@@ -1,0 +1,4 @@
+system	ck_xxl	mx_xxl	size_bytes	size_gb_decimal	comp_pct	throughput_chars_per_s	peak_host_rss_gb
+alonso--layeraware-native-mlp-q4	0.7669	2.7836	11804443105	11.8044	48.3508	866.858	5.73938
+baseline--bnb-q4	0.7665	2.8147	8353806376	8.35381	34.217	867.918	7.50874
+baseline--uncompressed	0.7695	2.7728	24414166577	24.4142	100	881.145	5.79638
