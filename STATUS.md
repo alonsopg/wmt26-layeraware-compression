@@ -155,3 +155,9 @@ This log is append-only and uses UTC timestamps.
 - Added `paper/REVIEW_RESPONSE.md` and `results/metrics/official_wmt26_eng_zho.tsv` as concise provenance records.
 - Validation: six A4 pages; LaTeX build passed; no overfull boxes or unresolved citations/references; all fonts embedded; visual inspection passed; `aclpubcheck -p other paper/main.pdf` returned `All Clear!`.
 - Remaining human checks: confirm author metadata against the submission system, inspect venue-specific camera-ready instructions, proofread, and add the WMT26 overview citation if its final bibliographic record becomes available.
+
+## 2026-09-05 — Camera-ready voice cleanup
+
+- Recast the manuscript in impersonal academic prose, removing first-person plural phrasing.
+- Removed the generative-writing declaration from the manuscript.
+- Rebuilt the PDF and reran the ACL publication checks.
